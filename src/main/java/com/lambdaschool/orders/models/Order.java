@@ -14,11 +14,10 @@ public class Order {
 
     private double ordamount;
     private double advanceamount;
-    private String orderdescription;
-
     @ManyToOne
     @JoinColumn(name = "custcode", nullable = false)
     private Customer customer;
+    private String orderdescription;
 
     @ManyToMany()
     @JoinTable(name = "orderspayments", joinColumns = @JoinColumn(name = "ordnum"), inverseJoinColumns = @JoinColumn(name = "paymentid"))
@@ -27,11 +26,11 @@ public class Order {
     public Order() {
     }
 
-    public Order(double ordamount, double advanceamount, String orderdescription, Customer customer) {
+    public Order(double ordamount, double advanceamount, Customer customer, String orderdescription) {
         this.ordamount = ordamount;
         this.advanceamount = advanceamount;
-        this.orderdescription = orderdescription;
         this.customer = customer;
+        this.orderdescription = orderdescription;
     }
 
     public long getOrdnum() {
@@ -72,5 +71,13 @@ public class Order {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public Set<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(Set<Payment> payments) {
+        this.payments = payments;
     }
 }

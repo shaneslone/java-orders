@@ -22,6 +22,7 @@ public class Customer {
     private double openingamt;
     private double receiveamt;
     private double paymentamt;
+    private double outstandingamt;
     private String phone;
 
     @ManyToOne
@@ -34,7 +35,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String custname, String custcity, String workingarea, String custcountry, String grade, double openingamt, double receiveamt, double paymentamt, String phone, Agent agent) {
+    public Customer(String custname, String custcity, String workingarea, String custcountry, String grade, double openingamt, double receiveamt, double paymentamt, double outstandingamt, String phone, Agent agent) {
         this.custname = custname;
         this.custcity = custcity;
         this.workingarea = workingarea;
@@ -43,6 +44,7 @@ public class Customer {
         this.openingamt = openingamt;
         this.receiveamt = receiveamt;
         this.paymentamt = paymentamt;
+        this.outstandingamt = outstandingamt;
         this.phone = phone;
         this.agent = agent;
     }
@@ -141,5 +143,13 @@ public class Customer {
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
+    }
+
+    public double getOutstandingamt() {
+        return outstandingamt;
+    }
+
+    public void setOutstandingamt(double outstandingamt) {
+        this.outstandingamt = outstandingamt;
     }
 }
