@@ -29,7 +29,7 @@ public class Customer {
     @JoinColumn(name = "agentcode", nullable = false)
     private Agent agent;
 
-    @OneToMany(mappedBy = "ordnum", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Order> orders = new ArrayList<>();
 
     public Customer() {

@@ -17,7 +17,7 @@ public class Agent {
     private String phone;
     private String country;
 
-    @OneToMany(mappedBy = "custcode", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "agent", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Customer> customers = new ArrayList<>();
 
     public Agent() {

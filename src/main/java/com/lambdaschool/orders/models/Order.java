@@ -17,6 +17,7 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "custcode", nullable = false)
     private Customer customer;
+
     private String orderdescription;
 
     @ManyToMany()
